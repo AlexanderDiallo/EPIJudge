@@ -3,7 +3,39 @@
 shared_ptr<ListNode<int>> MergeTwoSortedLists(shared_ptr<ListNode<int>> L1,
                                               shared_ptr<ListNode<int>> L2) {
   // TODO - you fill in here.
-  return nullptr;
+
+    auto dummyHead = make_shared<ListNode<int>>();
+
+	auto currentNode = dummyHead;
+	
+	while(true)
+	{
+		if(!L1)
+		{
+			currentNode->next = L2;
+			break;
+		}
+		else if (!L2)
+		{
+			currentNode->next = L1;
+			break;
+		}
+
+		if(L1->data < L2->data)
+		{
+			currentNode->next = L1;
+			L1 = L1->next;
+			currentNode = currentNode->next;
+		}
+		else
+		{
+			currentNode->next = L2;
+			L2 = L2->next;
+			currentNode = currentNode->next;
+		}
+	}
+	
+  return dummyHead->next;
 }
 
 int main(int argc, char* argv[]) {
