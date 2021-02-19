@@ -8,6 +8,25 @@ using std::vector;
 
 void EvenOdd(vector<int>* A_ptr) {
   // TODO - you fill in here.
+
+    vector<int>& numbers = *A_ptr;
+
+    int nextEven = 0;
+	int nextOdd = numbers.size() - 1;
+
+	while(nextEven < nextOdd)
+	{
+		if(numbers[nextEven] % 2 == 0)
+		{
+            nextEven++;
+		}
+        else
+        {
+            std::swap(numbers[nextEven], numbers[nextOdd]);
+            nextOdd--;
+        }
+	}
+
   return;
 }
 void EvenOddWrapper(TimedExecutor& executor, vector<int> A) {

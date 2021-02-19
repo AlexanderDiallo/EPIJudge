@@ -4,18 +4,20 @@ shared_ptr<ListNode<int>> MergeTwoSortedLists(shared_ptr<ListNode<int>> L1,
                                               shared_ptr<ListNode<int>> L2) {
   // TODO - you fill in here.
 
-    auto dummyHead = make_shared<ListNode<int>>();
+    shared_ptr<ListNode<int>> dummyHead = make_shared<ListNode<int>>();
+    dummyHead->next = nullptr;
 
 	auto currentNode = dummyHead;
 	
 	while(true)
 	{
-		if(!L1)
+		if(L1 == nullptr)
 		{
 			currentNode->next = L2;
 			break;
 		}
-		else if (!L2)
+
+		if(L2 == nullptr)
 		{
 			currentNode->next = L1;
 			break;
@@ -34,8 +36,8 @@ shared_ptr<ListNode<int>> MergeTwoSortedLists(shared_ptr<ListNode<int>> L1,
 			currentNode = currentNode->next;
 		}
 	}
-	
-  return dummyHead->next;
+
+	return dummyHead->next;
 }
 
 int main(int argc, char* argv[]) {
@@ -45,3 +47,55 @@ int main(int argc, char* argv[]) {
                          "sorted_lists_merge.tsv", &MergeTwoSortedLists,
                          DefaultComparator{}, param_names);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//auto dummyHead = make_shared<ListNode<int>>();
+//
+//auto currentNode = dummyHead;
+//
+//while (true)
+//{
+//	if (!L1)
+//	{
+//		currentNode->next = L2;
+//		break;
+//	}
+//	else if (!L2)
+//	{
+//		currentNode->next = L1;
+//		break;
+//	}
+//
+//	if (L1->data < L2->data)
+//	{
+//		currentNode->next = L1;
+//		L1 = L1->next;
+//		currentNode = currentNode->next;
+//	}
+//	else
+//	{
+//		currentNode->next = L2;
+//		L2 = L2->next;
+//		currentNode = currentNode->next;
+//	}
+//}
+//
+//return dummyHead->next;

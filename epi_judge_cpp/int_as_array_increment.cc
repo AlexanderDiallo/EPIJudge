@@ -4,7 +4,22 @@
 using std::vector;
 vector<int> PlusOne(vector<int> A) {
   // TODO - you fill in here.
-  return {};
+
+	for(int i = A.size() - 1; i >= 0; i--)
+	{
+		A[i] = (A[i] + 1) % 10;
+		if(A[i] != 0)
+		{
+			break;
+		}
+
+		if(i == 0)
+		{
+			A.emplace(std::begin(A), 1);
+		}
+	}
+	
+  return A;
 }
 
 int main(int argc, char* argv[]) {
