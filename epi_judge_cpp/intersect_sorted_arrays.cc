@@ -5,8 +5,33 @@ using std::vector;
 
 vector<int> IntersectTwoSortedArrays(const vector<int>& A,
                                      const vector<int>& B) {
+
+    int aIndex = 0;
+    int bIndex = 0;
+
+    std::set<int> result;
+	
+    while(aIndex < A.size() && bIndex < B.size())
+    {
+	    if(A[aIndex] < B[bIndex])
+	    {
+            aIndex++;
+	    }
+        else if(A[aIndex] > B[bIndex])
+        {
+            bIndex++;
+        }
+        else
+        {
+            result.insert(A[aIndex]);
+            aIndex++;
+            bIndex++;
+        	
+        }
+    }
+	
   // TODO - you fill in here.
-  return {};
+  return std::vector<int>(result.begin(), result.end());
 }
 
 int main(int argc, char* argv[]) {

@@ -5,6 +5,29 @@ using std::vector;
 
 void MergeTwoSortedArrays(vector<int>& A, int m, const vector<int>& B, int n) {
   // TODO - you fill in here.
+
+    int aIndex = m - 1;
+    int bIndex = n - 1;
+
+	int index = A.size() - 1;
+
+	while(aIndex >= 0 || bIndex >= 0)
+	{
+		if(bIndex < 0
+			|| (aIndex >= 0 && A[aIndex] > B[bIndex]))
+		{
+			A[index] = A[aIndex];
+			aIndex--;
+			index--;
+		}
+		else
+		{
+			A[index] = B[bIndex];
+			bIndex--;
+			index--;
+		}
+	}
+	
   return;
 }
 vector<int> MergeTwoSortedArraysWrapper(vector<int> A, int m,
