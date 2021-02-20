@@ -10,6 +10,7 @@ vector<int> IntersectTwoSortedArrays(const vector<int>& A,
     int bIndex = 0;
 
     std::set<int> result;
+    std::vector<int> resultAsArray;
 	
     while(aIndex < A.size() && bIndex < B.size())
     {
@@ -23,15 +24,24 @@ vector<int> IntersectTwoSortedArrays(const vector<int>& A,
         }
         else
         {
-            result.insert(A[aIndex]);
-            aIndex++;
-            bIndex++;
+            resultAsArray.push_back(A[aIndex]);
+
+            while(A[aIndex] == resultAsArray.back())
+            {
+                aIndex++;
+                if (aIndex >= A.size()) { break; }
+            }
+            while (B[bIndex] == resultAsArray.back())
+            {
+                bIndex++;
+                if (bIndex >= B.size()) { break; }
+            }
         	
         }
     }
 	
   // TODO - you fill in here.
-  return std::vector<int>(result.begin(), result.end());
+  return resultAsArray;
 }
 
 int main(int argc, char* argv[]) {
