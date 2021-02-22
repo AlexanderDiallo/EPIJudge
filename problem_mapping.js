@@ -538,7 +538,7 @@ problem_mapping = {
         },
         "6.05 Test palindromicity": {
             "C++: is_string_palindromic_punctuation.cc": {
-                "passed": 0,
+                "passed": 305,
                 "total": 305
             },
             "Java: IsStringPalindromicPunctuation.java": {
@@ -760,7 +760,7 @@ problem_mapping = {
         },
         "7.06 Delete a node from a singly linked list": {
             "C++: delete_node_from_list.cc": {
-                "passed": 0,
+                "passed": 512,
                 "total": 512
             },
             "Java: DeleteNodeFromList.java": {

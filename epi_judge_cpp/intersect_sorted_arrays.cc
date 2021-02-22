@@ -25,7 +25,7 @@ vector<int> IntersectTwoSortedArrays(const vector<int>& A,
         else
         {
             resultAsArray.push_back(A[aIndex]);
-
+        	
             while(A[aIndex] == resultAsArray.back())
             {
                 aIndex++;
